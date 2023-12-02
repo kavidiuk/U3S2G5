@@ -1,11 +1,21 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { CompletatiComponent } from './completati/completati.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-
+import { RouterModule, Route } from '@angular/router';
+const routes:Route[]=[
+  {
+    path:'/completed',
+    component: CompletatiComponent,
+  },
+  {
+    path:'/',
+    component: TodoComponent,
+  }
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +24,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     NavBarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
